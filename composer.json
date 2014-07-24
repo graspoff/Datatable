@@ -1,5 +1,5 @@
 {
-    "name": "chumper/datatable",
+    "name": "imihael/datatable",
     "description": "This is a laravel 4 package for the server and client side of datatablaes at http://datatables.net/",
     "keywords" : ["laravel","datatables", "ajax", "jquery"],
     "license": "MIT",
