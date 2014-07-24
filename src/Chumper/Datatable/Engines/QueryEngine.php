@@ -241,6 +241,13 @@ class QueryEngine extends BaseEngine {
                             $c[1] .= "($c[2])";
                         $builder = $builder->orderByRaw("cast($c[0] as $c[1]) ".$this->orderDirection);
                     }
+                    elseif(strrpos($this->orderColumn[1], '|'))
+                    {
+                        $c = explode('|', $this->orderColumn[1]);
+                        $builder = $builder->orderByRaw(
+                            $c[1] . '(' . $c[0] . ') ' . $this->orderDirection . ', ' . $c[0] . ' ' . $this->orderDirection
+                        );
+                    }
                     else
                         $builder = $builder->orderBy($col->getName(), $this->orderDirection);
                     return $builder;
